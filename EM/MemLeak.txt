@@ -1,0 +1,1 @@
+[memleak]:4 bytes [file]:d:\documents\visual studio 2015\projects\em\em\em.cpp [func]:main line:6 
