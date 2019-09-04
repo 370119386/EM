@@ -1,9 +1,17 @@
-#ifndef __IMODULE__H__
-#define __IMODULE__H__
+#ifndef __IPLUGIN__H__
+#define __IPLUGIN__H__
 #include "../Common/Object.h"
+#include "./IModule.h"
+#include "../Core/EMMap.hpp"
+#include <string>
+
+#define CREATE_PLUGIN(pManager, className)  IPlugin* pCreatePlugin##className = new className(pManager); pManager->Registered( pCreatePlugin##className );
+#define DESTROY_PLUGIN(pManager, className) pManager->UnRegistered( pManager->FindPlugin((#className)) );
+
 namespace EM
 {
-	class IPlugin : Object
+	class IPlugin : public IModule,
+		public EMMap<std::string,IModule>
 	{
 	public:
 		IPlugin()
@@ -12,6 +20,12 @@ namespace EM
 		}
 
 		virtual ~IPlugin() {};
+
+		virtual int GetPluginVersion() const = 0;
+
+		virtual std::string GetPluginName() const = 0;
+
+		virtual void Install() = 0;
 
 		virtual bool Awake()
 		{
@@ -60,8 +74,18 @@ namespace EM
 
 		virtual bool OnReloadPlugin()
 		{
+			IModule* pModule = First();
+			while (pModule)
+			{
+				//pPluginManager->SetCurrenModule(pModule);
+				pModule->OnReloadPlugin();
+				pModule = Next();
+			}
+
 			return true;
 		}
+
+		virtual void Uninstall() = 0;
 	};
 }
-#endif// __IMODULE__H__
+#endif// __IPLUGIN__H__

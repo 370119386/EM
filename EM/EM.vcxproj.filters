@@ -11,6 +11,9 @@
     <Filter Include="SDK">
       <UniqueIdentifier>{03f2dd86-ed82-4551-8a2d-77f185faf48b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core">
+      <UniqueIdentifier>{724b306c-1726-4286-99a7-4feb43e88e3e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="EM.cpp">
@@ -18,6 +21,9 @@
     </ClCompile>
     <ClCompile Include="Common\MemObjectTracer.cpp">
       <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="EMDynLib.cpp">
+      <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="PluginManager.cpp">
       <Filter>源文件</Filter>
@@ -42,6 +48,14 @@
     <ClInclude Include="Common\Platform.h">
       <Filter>Common</Filter>
     </ClInclude>
-    <ClInclude Include="PluginManager.h" />
+    <ClInclude Include="EMDynLib.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="PluginManager.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\EMMap.hpp">
+      <Filter>Core</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

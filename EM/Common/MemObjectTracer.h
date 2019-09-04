@@ -1,3 +1,5 @@
+#ifndef __MEMOBJECT__TRACER__H__
+#define __MEMOBJECT__TRACER__H__
 #include "Singleton.h"
 #include <map>
 
@@ -24,3 +26,4 @@ namespace EM
 
 	};
 }
+#endif//__MEMOBJECT__TRACER__H__

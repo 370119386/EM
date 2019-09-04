@@ -316,8 +316,8 @@ typedef int64_t NFSOCK;
 #endif
 
 #if EM_PLATFORM == EM_PLATFORM_WIN
-#ifndef NF_DYNAMIC_PLUGIN
-#define NF_DYNAMIC_PLUGIN 1
+#ifndef EM_DYNAMIC_PLUGIN
+#define EM_DYNAMIC_PLUGIN 1
 #endif
 #endif
 

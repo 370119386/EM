@@ -1,3 +1,5 @@
+#ifndef __SINGLETON__H__
+#define __SINGLETON__H__
 namespace EM
 {
 	template <class T>
@@ -40,3 +42,4 @@ namespace EM
 	template <class T>
 	T* Singleton<T>::m_pInstance = 0;
 }
+#endif//__SINGLETON__H__

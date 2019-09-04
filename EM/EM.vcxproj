@@ -29,7 +29,7 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v140</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -71,6 +71,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)\_Out\$(Configuration)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -144,6 +145,7 @@
   <ItemGroup>
     <ClCompile Include="Common\MemObjectTracer.cpp" />
     <ClCompile Include="EM.cpp" />
+    <ClCompile Include="EMDynLib.cpp" />
     <ClCompile Include="PluginManager.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -151,6 +153,8 @@
     <ClInclude Include="Common\Object.h" />
     <ClInclude Include="Common\Platform.h" />
     <ClInclude Include="Common\Singleton.h" />
+    <ClInclude Include="Core\EMMap.hpp" />
+    <ClInclude Include="EMDynLib.h" />
     <ClInclude Include="PluginManager.h" />
     <ClInclude Include="SDK\IModule.h" />
     <ClInclude Include="SDK\IPlugin.h" />

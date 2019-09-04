@@ -1,9 +1,10 @@
 #ifndef __IMODULE__H__
 #define __IMODULE__H__
 #include "../Common/Object.h"
+#include "../PluginManager.h"
 namespace EM
 {
-	class IModule : Object
+	class IModule
 	{
 	public:
 		IModule()
@@ -62,6 +63,15 @@ namespace EM
 		{
 			return true;
 		}
+
+		virtual PluginManager* GetPluginManager() const
+		{
+			return m_pPluginManager;
+		}
+
+	protected:
+		PluginManager* m_pPluginManager = 0;
+
 	};
 }
 #endif// __IMODULE__H__
