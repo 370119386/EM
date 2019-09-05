@@ -266,15 +266,15 @@ typedef uint64_t NFUINT64;
 typedef int64_t NFINT64;
 typedef int64_t NFSOCK;
 
-#if NF_PLATFORM == NF_PLATFORM_WIN
+#if EM_PLATFORM == EM_PLATFORM_WIN
 #include <crtdbg.h>
-#define NFASSERT(exp_, msg_, file_, func_)  \
+#define EMASSERT(exp_, msg_, file_, func_)  \
     std::string strInfo("Message:");        \
     strInfo += msg_ + std::string(" don't exist or some warning") + std::string("\n\nFile:") + std::string(file_) + std::string("\n Function:") + func_; \
     MessageBoxA(0, strInfo.c_str(), ("Error_"#exp_), MB_RETRYCANCEL | MB_ICONERROR); \
     assert(0);
 #else
-#define NFASSERT(exp_, msg_, file_, func_)
+#define EMASSERT(exp_, msg_, file_, func_)
 #endif
 
 
@@ -304,15 +304,15 @@ typedef int64_t NFSOCK;
 #define ELPP_DISABLE_DEFAULT_CRASH_HANDLING
 
 #if EM_PLATFORM == EM_PLATFORM_WIN
-#define NFSPRINTF sprintf_s
-#define NFSTRICMP stricmp
-#define NFSLEEP(s) Sleep(s) //millisecond
-#define NFGetPID() lexical_cast<std::string>(getpid())
+#define EMSPRINTF sprintf_s
+#define EMSTRICMP stricmp
+#define EMSLEEP(s) Sleep(s) //millisecond
+#define EMGetPID() lexical_cast<std::string>(getpid())
 #else
-#define NFSPRINTF snprintf
-#define NFSTRICMP strcasecmp
-#define NFSLEEP(s) usleep(s*1000) //millisecond
-#define NFGetPID() lexical_cast<std::string>(getpid())
+#define EMSPRINTF snprintf
+#define EMSTRICMP strcasecmp
+#define EMSLEEP(s) usleep(s*1000) //millisecond
+#define EMGetPID() lexical_cast<std::string>(getpid())
 #endif
 
 #if EM_PLATFORM == EM_PLATFORM_WIN
@@ -323,12 +323,12 @@ typedef int64_t NFSOCK;
 
 #if EM_PLATFORM != EM_PLATFORM_WIN
 #ifndef EM_USE_COROUTINE
-//#define NF_USE_COROUTINE 1
+//#define EM_USE_COROUTINE 1
 #endif
 #endif
 
 //using tcmalloc
-//#define NF_USE_TCMALLOC 1
+//#define EM_USE_TCMALLOC 1
 
 //using actor mode--begin
 #define EM_ACTOR_THREAD_COUNT 2
@@ -338,15 +338,15 @@ typedef int64_t NFSOCK;
 
 #define GET_CLASS_NAME(className) (#className)
 
-#define NF_SHARE_PTR std::shared_ptr
-#define NF_NEW new
+#define EM_SHARE_PTR std::shared_ptr
+#define EM_NEW new
 
 //¿ªÆôÄÚ´æÐ¹Â¶¼ì²â
 #define EM_MEM_LEACK_CHECK		(1)
 
 
 template<typename DTYPE>
-bool NF_StrTo(const std::string& strValue, DTYPE& nValue)
+bool EM_StrTo(const std::string& strValue, DTYPE& nValue)
 {
 	try
 	{
@@ -371,26 +371,26 @@ inline bool IsZeroDouble(const double dValue, double epsilon = 1e-15)
 	return std::abs(dValue) <= epsilon;
 }
 
-inline int64_t NFGetTimeMSEx()
+inline int64_t EMGetTimeMSEx()
 {
 	return std::chrono::duration_cast<std::chrono::microseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
 }
 
 //millisecond
-inline int64_t NFGetTimeMS()
+inline int64_t EMGetTimeMS()
 {
 	return std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
 }
 
 //second
-inline int64_t NFGetTimeS()
+inline int64_t EMGetTimeS()
 {
-	return NFGetTimeMS() / 1000;
+	return EMGetTimeMS() / 1000;
 }
 
 //Protobuf Using Dlls
 /*
-#if NF_PLATFORM == NF_PLATFORM_WIN
+#if EM_PLATFORM == EM_PLATFORM_WIN
 #ifndef PROTOBUF_USE_DLLS
 #define PROTOBUF_USE_DLLS
 #endif
