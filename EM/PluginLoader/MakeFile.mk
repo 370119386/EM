@@ -1,19 +1,14 @@
-OBJECTS=EMDynLib.o PluginLoader.o PluginManager.o
-CC=g++
-CFLAGS=-I ../ -std=c++11
+OBJECTS_DIR = ../bin
+OBJECTS = $(addprefix $(OBJECTS_DIR)/, $(patsubst %.cc, %.o, $(wildcard *.cc)))
+CC = g++
+CFLAGS = -I ../ -std=c++11
+TARGET = plugin_loader
 
-plugin_loader: $(OBJECTS)
-	$(CC) $(CFLAGS) -o plugin_loader $(OBJECTS)
+$(TARGET): $(OBJECTS)
+	$(CC) $(CFLAGS) $^ -o $(OBJECTS_DIR)/$(TARGET)
 
-EMDynLib.o: EMDynLib.h EMDynLib.cc
-	$(CC) $(CFLAGS) -c EMDynLib.cc
-
-PluginLoader.o: PluginLoader.cc
-	$(CC) $(CFLAGS) -c PluginLoader.cc
-
-PluginManager.o: PluginManager.h PluginManager.cc
-	$(CC) $(CFLAGS) -c PluginManager.cc
+$(OBJECTS_DIR)/%.o:%.cc
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm $(OBJECTS) plugin_loader
-
+	@rm -f $(OBJECTS_DIR)/$(TARGET) $(OBJECTS)
