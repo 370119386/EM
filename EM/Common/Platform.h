@@ -315,11 +315,11 @@ typedef int64_t NFSOCK;
 #define EMGetPID() lexical_cast<std::string>(getpid())
 #endif
 
-#if EM_PLATFORM == EM_PLATFORM_WIN
+//#if EM_PLATFORM == EM_PLATFORM_WIN
 #ifndef EM_DYNAMIC_PLUGIN
 #define EM_DYNAMIC_PLUGIN 1
 #endif
-#endif
+//#endif
 
 #if EM_PLATFORM != EM_PLATFORM_WIN
 #ifndef EM_USE_COROUTINE
@@ -341,10 +341,10 @@ typedef int64_t NFSOCK;
 #define EM_SHARE_PTR std::shared_ptr
 #define EM_NEW new
 
-//¿ªÆôÄÚ´æÐ¹Â¶¼ì²â
+//ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½Ð¹Â¶ï¿½ï¿½ï¿½
 #define EM_MEM_LEACK_CHECK		(1)
 
-
+/*
 template<typename DTYPE>
 bool EM_StrTo(const std::string& strValue, DTYPE& nValue)
 {
@@ -359,7 +359,7 @@ bool EM_StrTo(const std::string& strValue, DTYPE& nValue)
 	}
 
 	return false;
-}
+}*/
 
 inline bool IsZeroFloat(const float fValue, float epsilon = 1e-6)
 {
