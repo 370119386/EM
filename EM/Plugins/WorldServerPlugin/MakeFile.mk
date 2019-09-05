@@ -1,17 +1,18 @@
-OBJECTS=WorldServerPlugin.o dllmain.o
+DEPT_OBJECTS=PluginManager.o EMDynLib.o
+
+OBJECTS_DIR = ../../bin
+OBJECTS=$(addprefix $(OBJECTS_DIR)/,$(patsubst %.cc,%.o,$(wildcard *.cc)) $(DEPT_OBJECTS))
 CC=g++
-CFLAGS=-I ../../ -I ../../PluginLoader  -std=c++11
-PROJECT_NAME=world_server_plugin.so
+INCLUDE_PATH=../../
+CFLAGS=-std=c++11
+OUT_DIR=../../lib
+TARGET=world_server_plugin.so
 
-$(PROJECT_NAME): $(OBJECTS)
-	$(CC) $(CFLAGS) -shared -o $(PROJECT_NAME) $(OBJECTS) ../../PluginLoader/PluginManager.o
+$(TARGET): $(OBJECTS)
+	$(CC) $(CFLAGS) -I $(INCLUDE_PATH) -shared $(OBJECTS) -o $(OUT_DIR)/$(TARGET)
 
-dllmain.o: dllmain.cc
-	$(CC) $(CFLAGS) -c dllmain.cc
-
-WorldServerPlugin.o: WorldServerPlugin.h WorldServerPlugin.cc
-	$(CC) $(CFLAGS) -c WorldServerPlugin.cc
+$(OBJECTS_DIR)/%.o:%.cc
+	$(CC) $(CFLAGS) -I $(INCLUDE_PATH) -c $< -o $@
 
 clean:
-	rm $(OBJECTS) $(PROJECT_NAME)
-
+	@rm -f $(OUT_DIR)/$(TARGET) $(OBJECTS)

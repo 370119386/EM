@@ -3,7 +3,7 @@
 
 #include <stdio.h>
 #include <iostream>
-#include "Common/Platform.h"
+#include "Platform.h"
 
 #if EM_PLATFORM == EM_PLATFORM_WIN
 #    define DYNLIB_HANDLE hInstance

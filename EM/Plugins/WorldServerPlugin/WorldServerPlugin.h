@@ -2,7 +2,7 @@
 #define __WORLD__SERVER__PLUGIN__H__
 #include "Common/Platform.h"
 #include "Interface/IPlugin.h"
-#include "PluginManager.h"
+#include "PluginLoader/PluginManager.h"
 
 namespace EM
 {

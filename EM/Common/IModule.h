@@ -1,6 +1,6 @@
 #ifndef __IMODULE__H__
 #define __IMODULE__H__
-#include "../PluginLoader/PluginManager.h"
+#include "PluginManager.h"
 namespace EM
 {
 	class IModule

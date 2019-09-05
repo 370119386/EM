@@ -1,4 +1,5 @@
 #include "EMDynLib.h"
+#include <string>
 
 bool EM::EMDynLib::Load()
 {

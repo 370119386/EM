@@ -1,8 +1,9 @@
 #include <assert.h>
 #include "PluginManager.h"
-#include "Interface/IModule.h"
-#include "Interface/IPlugin.h"
+#include "IModule.h"
+#include "IPlugin.h"
 #include "EMDynLib.h"
+#include <iostream>
 
 using namespace EM;
 

@@ -1,7 +1,7 @@
 #ifndef __PLUGIN__MANAGER__H__
 #define __PLUGIN__MANAGER__H__
-#include "Common/Platform.h"
-#include "Common/Singleton.h"
+#include "Platform.h"
+#include "Singleton.h"
 #include <map>
 #include <string>
 
