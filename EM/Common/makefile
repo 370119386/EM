@@ -1,15 +1,15 @@
-TARGET = Common.so
+TARGET = Common
 HEADERS=$(wildcard *.h)
 OBJECTS=$(addprefix $(OBJ_DIR)/,$(patsubst %.cc,%.o,$(wildcard *.cc)))
-LIBS += $(TARGET)
+LIBS := $(TARGET)$(DL_APPEND)
 
 ALL:$(TARGET) ECHO
 
 ECHO:
-	@echo "compile $(TARGET) succeed ..."
+	@echo "compile $(TARGET)$(DL_APPEND) succeed ..."
 
 $(TARGET):$(OBJECTS)
-	$(CC) $(CPPFLAGS) -shared $(OBJECTS) -o $(LIB_DIR)/$(TARGET)
+	$(CC) $(CPPFLAGS) -shared $(OBJECTS) -o $(LIB_DIR)/$(TARGET)$(DL_APPEND)
 
 $(OBJ_DIR)/%.o:%.cc
 	$(CC) $(CPPFLAGS) -c $< -o $@

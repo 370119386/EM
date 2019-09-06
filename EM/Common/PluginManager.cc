@@ -279,6 +279,7 @@ bool EM::PluginManager::LoadPluginLibrary(const std::string& strPluginDLLName)
 
 		if (bLoad)
 		{
+			std::cout << stdout << "Load shared lib [" << pLib->GetName() << "] succeed ..." << std::endl;
 			mPluginLibDic.insert(PluginLibMap::value_type(strPluginDLLName, pLib));
 
 			DLL_START_PLUGIN_FUNC pFunc = (DLL_START_PLUGIN_FUNC)pLib->GetSymbol("DllStartPlugin");

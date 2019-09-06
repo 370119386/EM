@@ -13,10 +13,11 @@ INCLUDE := src Common
 INCLUDE_FLAGS =
 LD_FLAGS := 
 COMMON_OBJECTS = $(OBJ_DIR)/EMDynLib.o $(OBJ_DIR)/PluginManager.o
+DL_APPEND := .so
 # 
 #	Plugins/WorldServerPlugin 
 
-export CC SRC INCLUDE OBJ TOP_DIR OBJ_DIR BIN_DIR LIB_DIR BIN CPPFLAGS LIBS COMMON_OBJECTS
+export CC SRC INCLUDE OBJ TOP_DIR OBJ_DIR BIN_DIR LIB_DIR BIN CPPFLAGS LIBS COMMON_OBJECTS DL_APPEND
 
 all:CHECKDIR $(SUB_DIR) GAME_SERVER
 
@@ -28,7 +29,7 @@ ECHO:
 	@echo start compile $(SUB_DIR) ...
 
 GAME_SERVER:
-	$(CC) $(addprefix -I ./,$(wildcard $(INCLUDE))) $(OBJ_DIR)/*.o -L lib $(addprefix -l ,$(wildcard $(LIBS))) -o $(BIN_DIR)/game_server
+	$(CC) $(CPPFLAGS) $(addprefix -I ./,$(wildcard $(INCLUDE))) $(OBJ_DIR)/main.o $(COMMON_OBJECTS)  -o $(BIN_DIR)/game_server
 
 clean:
 	rm -rf $(BUILD_DIR)
