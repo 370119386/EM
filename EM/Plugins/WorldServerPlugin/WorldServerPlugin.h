@@ -1,8 +1,8 @@
 #ifndef __WORLD__SERVER__PLUGIN__H__
 #define __WORLD__SERVER__PLUGIN__H__
 #include "Common/Platform.h"
-#include "Interface/IPlugin.h"
-#include "PluginLoader/PluginManager.h"
+#include "Common/IPlugin.h"
+#include "Common/PluginManager.h"
 
 namespace EM
 {

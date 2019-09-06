@@ -21,7 +21,12 @@ PluginManager::~PluginManager()
 
 void EM::PluginManager::LoadPlugin()
 {
+	LoadConfig();
 
+	for(auto& itr : mPluginNameDic)
+	{
+		LoadPluginLibrary(itr.first);
+	}
 }
 
 bool EM::PluginManager::Awake()
@@ -257,6 +262,11 @@ bool EM::PluginManager::ReLoadPlugin(const std::string & strPluginDLLName)
 		}
 	}
 	return true;
+}
+
+void EM::PluginManager::LoadConfig()
+{
+	mPluginNameDic.insert(PluginNameMap::value_type("WorldServerPlugin",true));
 }
 
 bool EM::PluginManager::LoadPluginLibrary(const std::string& strPluginDLLName)

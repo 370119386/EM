@@ -3,7 +3,7 @@
 
 bool EM::EMDynLib::Load()
 {
-    std::string strLibPath = "./";
+    std::string strLibPath = "../lib/";
     strLibPath += mstrName;
     mInst = (DYNLIB_HANDLE)DYNLIB_LOAD(strLibPath.c_str());
 

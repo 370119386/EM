@@ -34,6 +34,7 @@ namespace EM
 	protected:
 		bool LoadPluginLibrary(const std::string& strPluginDLLName);
 		bool UnLoadPluginLibrary(const std::string& strPluginDLLName);
+		void LoadConfig();
 
 	private:
 		typedef std::map<std::string, bool> PluginNameMap;

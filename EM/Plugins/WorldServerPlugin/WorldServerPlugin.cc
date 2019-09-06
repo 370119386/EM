@@ -1,4 +1,5 @@
 #include "WorldServerPlugin.h"
+#include <stdio.h>
 using namespace EM;
 
 #ifdef EM_DYNAMIC_PLUGIN

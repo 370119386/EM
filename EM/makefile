@@ -8,14 +8,15 @@ BIN_DIR := $(BUILD_DIR)/bin
 LIB_DIR := $(BUILD_DIR)/lib
 BIN := test
 SRC := src
-SUB_DIR := Common src
+SUB_DIR := Common src Plugins/WorldServerPlugin
 INCLUDE := src Common
 INCLUDE_FLAGS =
 LD_FLAGS := 
+COMMON_OBJECTS = $(OBJ_DIR)/EMDynLib.o $(OBJ_DIR)/PluginManager.o
 # 
 #	Plugins/WorldServerPlugin 
 
-export CC SRC INCLUDE OBJ TOP_DIR OBJ_DIR BIN_DIR LIB_DIR BIN CPPFLAGS LIBS
+export CC SRC INCLUDE OBJ TOP_DIR OBJ_DIR BIN_DIR LIB_DIR BIN CPPFLAGS LIBS COMMON_OBJECTS
 
 all:CHECKDIR $(SUB_DIR) GAME_SERVER
 
