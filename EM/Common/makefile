@@ -1,7 +1,7 @@
 TARGET = Common.so
 HEADERS=$(wildcard *.h)
 OBJECTS=$(addprefix $(OBJ_DIR)/,$(patsubst %.cc,%.o,$(wildcard *.cc)))
-
+LIBS += $(TARGET)
 
 ALL:$(TARGET) ECHO
 

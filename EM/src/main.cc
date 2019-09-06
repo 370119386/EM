@@ -8,7 +8,7 @@
 #include <future>
 #include <functional>
 #include <atomic>
-#include "PluginManager.h"
+#include "../Common/PluginManager.h"
 
 //#include "NFComm/NFCore/NFException.h"
 //#include "NFComm/NFPluginModule/NFPlatform.h"
