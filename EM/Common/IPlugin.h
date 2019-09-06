@@ -1,7 +1,7 @@
 #ifndef __IPLUGIN__H__
 #define __IPLUGIN__H__
 #include "IModule.h"
-#include "../Core/EMMap.hpp"
+#include "../Core/Map.hpp"
 #include <string>
 
 #define CREATE_PLUGIN(pManager, className)  IPlugin* pCreatePlugin##className = new className(pManager); pManager->Registered( pCreatePlugin##className );
@@ -10,7 +10,7 @@
 namespace EM
 {
 	class IPlugin : public IModule,
-		public EMMap<std::string,IModule>
+		public Map<std::string,IModule>
 	{
 	public:
 		IPlugin()
