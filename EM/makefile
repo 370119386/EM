@@ -1,5 +1,5 @@
 CC = g++
-CPPFLAGS = -std=c++11
+CPPFLAGS = -std=c++11 -fPIC
 OBJ := main.o
 TOP_DIR := $(PWD)
 BUILD_DIR := $(TOP_DIR)/build
@@ -29,7 +29,7 @@ ECHO:
 	@echo start compile $(SUB_DIR) ...
 
 GAME_SERVER:
-	$(CC) $(CPPFLAGS) $(addprefix -I ./,$(wildcard $(INCLUDE))) $(OBJ_DIR)/main.o $(COMMON_OBJECTS)  -o $(BIN_DIR)/game_server
+	$(CC) $(CPPFLAGS) $(addprefix -I ./,$(wildcard $(INCLUDE))) $(OBJ_DIR)/main.o $(COMMON_OBJECTS) -ldl -o $(BIN_DIR)/game_server
 
 clean:
 	rm -rf $(BUILD_DIR)
