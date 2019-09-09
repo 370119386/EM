@@ -255,16 +255,19 @@
 #include <map>
 #include <iostream>
 
+namespace EM
+{
 // Integer formats of fixed bit width
-typedef uint32_t NFUINT32;
-typedef uint16_t NFUINT16;
-typedef uint8_t NFUINT8;
-typedef int32_t NFINT32;
-typedef int16_t NFINT16;
-typedef int8_t NFINT8;
-typedef uint64_t NFUINT64;
-typedef int64_t NFINT64;
-typedef int64_t NFSOCK;
+typedef uint32_t UINT32;
+typedef uint16_t UINT16;
+typedef uint8_t UINT8;
+typedef int32_t INT32;
+typedef int16_t INT16;
+typedef int8_t INT8;
+typedef uint64_t UINT64;
+typedef int64_t INT64;
+typedef int64_t SOCK;
+}
 
 #if EM_PLATFORM == EM_PLATFORM_WIN
 #include <crtdbg.h>
